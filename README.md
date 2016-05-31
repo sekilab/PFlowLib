@@ -1,2 +1,2 @@
 # PFlowLib
-This is core library of people flow project. (will be public until the end of May)
+This is part of core library of people flow project.

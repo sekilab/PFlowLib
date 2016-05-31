@@ -32,18 +32,6 @@ public class Geohash implements Serializable {
 	 * static methods
 	 * ============================================================== */	
 	/**
-	 * テスト用エントリポイント
-	 * @param args なし
-	 */
-	public static void main(String args[]) throws IOException {
-		Geohash inst0 = new Geohash(7,139.745447,35.65861);	// tokyo tower
-		System.out.println(inst0);
-
-		Geohash inst1 = new Geohash(inst0.getGeohash());
-		System.out.println(inst1);
-	}
-	
-	/**
 	 * set default geohash length
 	 * @param hashLength default geohash length
 	 */
