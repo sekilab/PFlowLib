@@ -1,7 +1,6 @@
 package jp.ac.ut.csis.pflow.geom;
 
 import java.awt.geom.Rectangle2D;
-import java.io.IOException;
 import java.io.Serializable;
 
 

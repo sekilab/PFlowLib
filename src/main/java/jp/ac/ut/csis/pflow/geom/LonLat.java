@@ -95,7 +95,7 @@ public class LonLat implements Serializable, Cloneable {
     
     /**
      * get latitude
-     * @return　latitude
+     * @return latitude
      */
     public double getLat() {
     	return _lat;
@@ -103,7 +103,7 @@ public class LonLat implements Serializable, Cloneable {
     
     /**
      * get longitude
-     * @return　longitude
+     * @return longitude
      */
     public double getLon() {
     	return _lon;
@@ -171,7 +171,7 @@ public class LonLat implements Serializable, Cloneable {
     /**
      * get distance with the indicated point in meter
      * @param p target position
-     * @return　distance(m)
+     * @return distance(m)
      * @see DistanceUtils#distance(LonLat, LonLat)
      */
     public double distance(LonLat p) {
