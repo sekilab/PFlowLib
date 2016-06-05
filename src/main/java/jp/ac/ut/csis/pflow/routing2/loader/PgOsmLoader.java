@@ -155,8 +155,8 @@ public class PgOsmLoader extends APgNetworkLoader {
 				int    gid  = res.getInt(OSM_LINK_ID_COLUMN);
 				String src  = String.valueOf(res.getInt(OSM_SOURCE_NODE_COLUMN));
 				String tgt  = String.valueOf(res.getInt(OSM_TARGET_NODE_COLUMN));
-				double cst  = res.getDouble(OSM_LEGNTH_COLUMN)*1000;	// res.getDouble(OSM_COST_COLUMN);
-				double rcst = res.getDouble(OSM_LEGNTH_COLUMN)*1000;	// res.getDouble(OSM_REVERSER_COST_COLUMN);
+				double cst  = res.getDouble(OSM_LEGNTH_COLUMN);	// res.getDouble(OSM_COST_COLUMN);
+				double rcst = res.getDouble(OSM_LEGNTH_COLUMN);	// res.getDouble(OSM_REVERSER_COST_COLUMN);
 				int    spd  = res.getInt(OSM_VELOCITY_COLUMN);
 				int    clz  = res.getInt(OSM_ROAD_TYPE_COLUMN);	// road type:: details are in osm2po.config 
 				boolean way = false;
