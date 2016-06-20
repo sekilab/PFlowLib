@@ -184,9 +184,6 @@ public class PgOsmLoader extends APgNetworkLoader {
 			LOGGER.error("fail to load network",exp); 
 			network = null; 
 		}
-		finally {
-			System.gc(); 
-		}
 		return network;
 	}
 }
