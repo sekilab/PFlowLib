@@ -81,10 +81,13 @@ public final class TrajectoryUtils {
     	for(int i=1;i<size;i++) { 
     		T p1 = points.get(i);
     		double d = DistanceUtils.distance(p0,p1);
-    		if( divLen <= (dist+d) ) { 
-    			double rn = (dist+d-divLen)/d;
-    			double rm = 1 - rn;
-    			return new LonLat(p0.getLon()*rn+p1.getLon()*rm,p0.getLat()*rn+p1.getLat()*rm);
+    		if( d == 0d );
+    		else {
+	    		if( divLen <= (dist+d) ) { 
+	    			double rn = (dist+d-divLen)/d;
+	    			double rm = 1 - rn;
+	    			return new LonLat(p0.getLon()*rn+p1.getLon()*rm,p0.getLat()*rn+p1.getLat()*rm);
+	    		}	
     		}
     		dist += d;
     		p0   =  p1;
@@ -112,23 +115,26 @@ public final class TrajectoryUtils {
     	for(int i=1;i<size;i++) { 
     		T p1 = points.get(i);
     		double d = DistanceUtils.distance(p0,p1);
-    		double tempD = dist+d;
-    		if( tempD < divLen0 );
-    		else {
-    			if( subline.isEmpty() ) {
-	    			double rn = (dist+d-divLen0)/d;
-	    			double rm = 1 - rn;
-	    			subline.add( new LonLat(p0.getLon()*rn+p1.getLon()*rm,p0.getLat()*rn+p1.getLat()*rm) );
-    			}
-
-    			if( divLen0 <= tempD && tempD < divLen1 ) { 
-    				if( divLen0 != (dist+d) ) { subline.add(p1); }
-    			}
+    		if( d == 0d ); 
+    		else { 
+	    		double tempD = dist+d;
+	    		if( tempD < divLen0 );
 	    		else {
-	    			double rn = (dist+d-divLen1)/d;
-	    			double rm = 1 - rn;
-	    			subline.add( new LonLat(p0.getLon()*rn+p1.getLon()*rm,p0.getLat()*rn+p1.getLat()*rm) );
-	    			break;
+	    			if( subline.isEmpty() ) {
+		    			double rn = (dist+d-divLen0)/d;
+		    			double rm = 1 - rn;
+		    			subline.add( new LonLat(p0.getLon()*rn+p1.getLon()*rm,p0.getLat()*rn+p1.getLat()*rm) );
+	    			}
+	
+	    			if( divLen0 <= tempD && tempD < divLen1 ) { 
+	    				if( divLen0 != (dist+d) ) { subline.add(p1); }
+	    			}
+		    		else {
+		    			double rn = (dist+d-divLen1)/d;
+		    			double rm = 1 - rn;
+		    			subline.add( new LonLat(p0.getLon()*rn+p1.getLon()*rm,p0.getLat()*rn+p1.getLat()*rm) );
+		    			break;
+		    		}
 	    		}
     		}
 	    	dist += d;
