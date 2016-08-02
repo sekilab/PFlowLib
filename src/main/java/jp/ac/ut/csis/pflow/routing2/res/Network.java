@@ -1,7 +1,7 @@
 package jp.ac.ut.csis.pflow.routing2.res;
 
 import java.util.ArrayList;
-import java.util.Hashtable;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -58,8 +58,8 @@ public class Network {
 	 * @param makeLinkIndex flag for spatial index of road links 
 	 */
 	public Network(boolean makeNodeIndex,boolean makeLinkIndex) {
-		_nodes     = new Hashtable<String,Node>();
-		_links     = new Hashtable<String,Link>();
+		_nodes     = new HashMap<String,Node>();
+		_links     = new HashMap<String,Link>();
 		_nodeIndex = makeNodeIndex ? new STRtree() : null;
 		_linkIndex = makeLinkIndex ? new STRtree() : null;
 	}
