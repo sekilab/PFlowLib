@@ -3,7 +3,7 @@ package jp.ac.ut.csis.pflow.routing2.logic;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.Hashtable;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -68,7 +68,7 @@ public class Dijkstra extends ARoutingLogic {
 		});
 		
 		Knot           knot  = new Knot(depnode);
-		Map<Node,Knot> knots = new Hashtable<Node,Knot>();
+		Map<Node,Knot> knots = new HashMap<Node,Knot>();
 		knots.put(depnode,knot);
 		queue.add(knot);
 		while( !queue.isEmpty() ) { 

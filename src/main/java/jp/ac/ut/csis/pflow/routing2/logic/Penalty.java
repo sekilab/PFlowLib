@@ -2,7 +2,7 @@ package jp.ac.ut.csis.pflow.routing2.logic;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.Hashtable;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
@@ -118,7 +118,7 @@ public class Penalty extends ARoutingLogic {
 	public List<Route> getRoutes(Network network,Node depnode,Node arrnode,int n) {
 		List<Route> routes = new ArrayList<Route>();
 		
-		Map<String,double[]> costs    = new Hashtable<String,double[]>();
+		Map<String,double[]> costs    = new HashMap<String,double[]>();
 		LinkCost             operator = getLinkCost(); 
 		for(int i=0;i<n;i++) {
 			// conduct routing with Dijkstra ==============
@@ -162,7 +162,7 @@ public class Penalty extends ARoutingLogic {
 		});
 		
 		Knot           knot  = new Knot(depnode);
-		Map<Node,Knot> knots = new Hashtable<Node,Knot>();
+		Map<Node,Knot> knots = new HashMap<Node,Knot>();
 		knots.put(depnode,knot);
 		queue.add(knot);
 		while( !queue.isEmpty() ) { 
