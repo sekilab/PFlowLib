@@ -18,7 +18,7 @@ public class OsmLinkCost extends LinkCost {
 		// case OsmLink, get cost as time duration
 		if ( link instanceof OsmLink ) {
 			OsmLink osmlink = OsmLink.class.cast(link);
-			double  vel_m_s = osmlink.getSpeed() * 1000d/3600d;
+			double  vel_m_s = osmlink.getSpeed();// * 1000d/3600d;
 			return link.getCost() / vel_m_s;
 		}
 		// otherwise get original cost
@@ -33,7 +33,7 @@ public class OsmLinkCost extends LinkCost {
 		// case OsmLink, get reverse cost as time duration
 		if ( link instanceof OsmLink ) {
 			OsmLink osmlink = OsmLink.class.cast(link);
-			double  vel_m_s = osmlink.getSpeed() * 1000d/3600d;
+			double  vel_m_s = osmlink.getSpeed();// * 1000d/3600d;
 			return link.getReverseCost() / vel_m_s;
 		}
 		// otherwise, get original reverse cost

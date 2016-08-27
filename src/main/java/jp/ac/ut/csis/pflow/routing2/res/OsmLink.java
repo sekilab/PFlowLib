@@ -30,8 +30,8 @@ public class OsmLink extends Link {
 	/* ==============================================================
 	 * instance fields
 	 * ============================================================== */
-	/** road class flag	*/	private int _clazz;	// road type(0-127)
-	/** road speed flag	*/	private int _speed;
+	/** road class flag	*/	private int    _clazz;	// road type(0-127)
+	/** road speed limit*/	private double _speed;
 
 	
 	/* ==============================================================
@@ -48,7 +48,7 @@ public class OsmLink extends Link {
 	 * @param clazz road class flag
 	 * @param speed speed
 	 */
-	public OsmLink(String linkid,Node tailNode,Node headNode,double cost,double revCost,boolean oneway,int clazz,int speed) {
+	public OsmLink(String linkid,Node tailNode,Node headNode,double cost,double revCost,boolean oneway,int clazz,double speed) {
 		super(linkid,tailNode,headNode,cost,revCost,oneway);
 		// additional parameters for OSM //////////////////
 		_clazz = clazz;
@@ -67,7 +67,7 @@ public class OsmLink extends Link {
 	 * @param speed speed
 	 * @param geom point list(head node must be first point of list)
 	 */
-	public OsmLink(String linkid,Node tailNode,Node headNode,double cost,double revCost,boolean oneway,int clazz,int speed,List<LonLat> geom) {
+	public OsmLink(String linkid,Node tailNode,Node headNode,double cost,double revCost,boolean oneway,int clazz,double speed,List<LonLat> geom) {
 		super(linkid,tailNode,headNode,cost,revCost,oneway,geom);
 		// additional parameters for OSM //////////////////
 		_clazz = clazz;
@@ -87,10 +87,10 @@ public class OsmLink extends Link {
 	}
 	
 	/**
-	 * get speed (km/h)
-	 * @return speed (km/h)
+	 * get speed (m/s)
+	 * @return speed (m/s)
 	 */
-	public int getSpeed() { 
+	public double getSpeed() { 
 		return _speed;
 	}
 	

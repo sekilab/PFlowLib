@@ -102,9 +102,9 @@ public class CsvOsmLoader extends ACsvNetworkLoader {
 			String  gid  = tokens[0];	// gid
 			String  src  = tokens[8];	// source
 			String  tgt  = tokens[9];	// target
-			int     spd  = Integer.parseInt(tokens[11]);
-			double  cst  = Double.parseDouble(tokens[10]);
-			double  rcst = Double.parseDouble(tokens[10]);
+			double  spd  = Integer.parseInt(tokens[11]) * 1000d / 3600d; // km/h >> m/s
+			double  cst  = Double.parseDouble(tokens[10]) * 1000d;	// km >> m
+			double  rcst = Double.parseDouble(tokens[10]) * 1000d;	// km >> m
 			int     clz  = Integer.parseInt(tokens[6]);
 			String  wkb  = tokens[18];
 			boolean way  = false;
