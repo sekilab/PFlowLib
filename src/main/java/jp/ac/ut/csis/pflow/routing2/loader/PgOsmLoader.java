@@ -65,7 +65,7 @@ public class PgOsmLoader extends APgNetworkLoader {
 	
 
 	/** column name of link id (default: gid) */
-	public static final String OSM_LINK_ID_COLUMN       = System.getProperty("pflow.routing2.pgloader.osm_link_id_column",     LINK_ID_COLUMN);
+	public static final String OSM_LINK_ID_COLUMN       = System.getProperty("pflow.routing2.pgloader.osm_link_id_column",     "id");
 	/** column name of source node (default: source) */
 	public static final String OSM_SOURCE_NODE_COLUMN   = System.getProperty("pflow.routing2.pgloader.osm_source_column",      SOURCE_NODE_COLUMN);
 	/** column name of target node (default: target) */
@@ -80,7 +80,7 @@ public class PgOsmLoader extends APgNetworkLoader {
 	/** column name of length (default: km) */
 	public static final String OSM_LEGNTH_COLUMN        = System.getProperty("pflow.routing2.pgloader.osm_length_column",   "km");
 	/** column name of velocity (default: kmh) */
-	public static final String OSM_VELOCITY_COLUMN      = System.getProperty("pflow.routing2.pgloader.osm_velocity_column", "spd");
+	public static final String OSM_VELOCITY_COLUMN      = System.getProperty("pflow.routing2.pgloader.osm_velocity_column", "kmh");
 	/** column name of road type (default: clazz) */
 	public static final String OSM_ROAD_TYPE_COLUMN     = System.getProperty("pflow.routing2.pgloader.osm_road_type_column","clazz");
 	
@@ -161,7 +161,7 @@ public class PgOsmLoader extends APgNetworkLoader {
 				int    clz  = res.getInt(OSM_ROAD_TYPE_COLUMN);	// road type:: details are in osm2po.config 
 				boolean way = false;
 				
-				Geometry   geom = PGgeometry.class.cast(res.getObject(GEOMETRY_COLUMN)).getGeometry();	// default column name created by osm2po is "geom_way" 
+				Geometry   geom = PGgeometry.class.cast(res.getObject(OSM_GEOMETRY_COLUMN)).getGeometry();	// default column name created by osm2po is "geom_way" 
 				LineString line = null; 
 				if      ( geom instanceof LineString      ) { line = LineString.class.cast( geom );               }
 				else if ( geom instanceof MultiLineString ) { line = MultiLineString.class.cast(geom).getLine(0); }
